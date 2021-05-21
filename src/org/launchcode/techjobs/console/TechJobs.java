@@ -61,6 +61,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
+                    printJobs(JobData.findByValue(searchTerm));
                     System.out.println("Search all fields not yet implemented.");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
@@ -69,7 +70,7 @@ public class TechJobs {
         }
     }
 
-    // ﻿Returns the key of the selected item from the choices Dictionary
+    // Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         Integer choiceIdx;
@@ -111,17 +112,17 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        if (someJobs.size() >= 1) {
-
-            for (int i = 0; i < someJobs.size(); i++) {
-
-                for (HashMap.Entry<String, String> job : someJobs.get(i).entrySet()) {
-                    System.out.println(job.getKey() + ":" + "(" + job.getValue() + ")");
-                }
-                System.out.println("******");
-            }
-        } else{
-            System.out.println("No Results.");
+        if (someJobs.isEmpty()) {
+            System.out.println("SEARCH TERM DOES NOT EXIST PLEASE TRY AGAIN!");
         }
+
+        for (HashMap<String, String> job : someJobs){
+            System.out.println("*****");
+            for ( String entry : job.keySet()){
+                System.out.println(entry + ": " + job.get(entry));
+
+            } System.out.println("*****" + "\n");
+        }
+
     }
 }
