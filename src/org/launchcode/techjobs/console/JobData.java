@@ -33,13 +33,13 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<String> values = new ArrayList<>(); //setting up array list called "values"
+        ArrayList<String> values = new ArrayList<>();   //setting up array list called "values"
 
-        for (HashMap<String, String> row : allJobs) { //for HashMap row in allJobs
-            String aValue = row.get(field); // takes the row and grabs the field that was picked see line 28
+        for (HashMap<String, String> row : allJobs) {   //for HashMap row in allJobs
+            String aValue = row.get(field);             // takes the row and grabs the field that was picked see line 28
 
-            if (!values.contains(aValue)) { //if the array list "values" doesn't contain "aValue"
-                values.add(aValue); // it adds it to "values"
+            if (!values.contains(aValue)) {             //if the array list "values" doesn't contain "aValue"
+                values.add(aValue);                     // it adds it to "values"
             }
         }
 
