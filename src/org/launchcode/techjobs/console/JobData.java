@@ -88,22 +88,17 @@ public class JobData {
         return jobs;
     }
 
-
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
         for (HashMap<String, String> row : allJobs) {
-
             for (HashMap.Entry<String, String> column : row.entrySet()) {
-//get keys from column for string
-                String a = column.getKey();
-                String b = column.getKey();
-//make strings lowercase
-                a = a.toLowerCase();
-                b = b.toLowerCase();
+                String aValue = row.get(column);
+//make  lowercase
+                String a   = aValue.toLowerCase();
+                String b  = value.toLowerCase();
 //add values to row from both strings
                 if(a.contains(value) || b.contains(value)) {
                     jobs.add(row);
@@ -153,7 +148,6 @@ public class JobData {
             e.printStackTrace();
         }
 
-        }
-
     }
 
+}
